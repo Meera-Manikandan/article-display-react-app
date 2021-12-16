@@ -2,8 +2,9 @@ import React, { useState } from "react";
 
 import MoviesList from "./components/movie-list/MoviesList";
 import UsersList from "./components/user-list/UsersList";
-
+import Container from "react-bootstrap/Container";
 import "./App.css";
+import { Row, Col } from "react-bootstrap";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -44,19 +45,26 @@ function App() {
   }
   return (
     <React.Fragment>
-      <section>
-        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
-      </section>
-      <section>
-        <MoviesList movies={movies} />
-      </section>
-
-      <section>
-        <button onClick={fetchUsersHandler}>Fetch Users</button>
-      </section>
-      <section>
-        <UsersList users={users} />
-      </section>
+      <Container>
+        <Row>
+          <Col>
+            <section>
+              <button onClick={fetchMoviesHandler}>Fetch Movies</button>
+            </section>
+            <section>
+              <MoviesList movies={movies} />
+            </section>
+          </Col>
+          <Col>
+            <section>
+              <button onClick={fetchUsersHandler}>Fetch Users</button>
+            </section>
+            <section>
+              <UsersList users={users} />
+            </section>
+          </Col>
+        </Row>
+      </Container>
     </React.Fragment>
   );
 }
