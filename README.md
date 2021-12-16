@@ -1,6 +1,4 @@
-## Project Name & Pitch
-
-Article Dispaly Application
+## Article Dispaly Application
 
 This project is a sample ReactJS based web applicaiton , which is used to interact with two different third party API. Application is built with React, JavaScript, and CSS.
 
