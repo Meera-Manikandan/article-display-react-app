@@ -6,9 +6,16 @@ This project is a sample ReactJS based web applicaiton , which is used to intera
 
 Base version of the running application which diplay movie list and user list are currently implemented
 
-## Project Screen Shot(s)
+## Development Approach
 
-[ To be uploaded ]
+Followed two approaches for fetching data from both APIs:
+
+#Movies List from SWAPI:
+Used async-await approach for third-party API calls with catch for error handling.
+Used React Hooks like useEffect for the first time loading of the landing page when the component is mounted.
+
+#User List from jsonplaceholder API:
+Used fetch with try-catch for third-party calls and error handling.
 
 ## Installation and Local Setup Instructions
 
