@@ -4,17 +4,19 @@
   background-color: #230052;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
-  text-align: center;
+  text-align: justify;
   color: white;
 }
 
 .movie h2 {
   font-size: 2rem;
   color: #f7e702;
+  text-align: center;
 }
 
 .movie h3 {
   color: #eccf77;
   margin: 0;
   font-size: 1rem;
+  text-align: center;
 }
