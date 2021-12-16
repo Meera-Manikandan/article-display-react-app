@@ -10,7 +10,7 @@ Base version of the running application which diplay movie list and user list ar
 
 [ To be uploaded ]
 
-## Installation and Setup Instructions
+## Installation and Local Setup Instructions
 
 Clone down this repository (master branch). You will need `node` and `npm` installed globally on your machine.
 
@@ -25,6 +25,12 @@ To Start Server:
 To Visit App:
 
 `localhost:3000`
+
+## Build and Production deployment bundle creation steps
+
+`npm run build`
+
+This will create a "build" folder in the workspace , which will contain all the packaged application code for deployment
 
 ## Reflection
 
