@@ -1,4 +1,4 @@
-## Article Dispaly Application
+## Article Display Application
 
 This project is a sample ReactJS based web applicaiton , which is used to interact with two different third party API. Application is built with React, JavaScript, and CSS.
 
@@ -34,6 +34,6 @@ This will create a "build" folder in the workspace , which will contain all the 
 
 ## Reflection
 
-This was a 4 hour tech skill assesment project . I had completed this project iteratively. I started this process by using the `create-react-app` boilerplate framework code. Then tried to simulate data retervial call to swapi API , Once it is working next integration work with jsonplaceholder API implemented
+This was a 4 hour tech skill assesment project . I had completed this project iteratively. I started this process by using the `create-react-app` boilerplate framework code. Then tried to simulate data retrival call to swapi API , Once it is working next integration work with jsonplaceholder API implemented
 
 Project goals included using technologies known up until this point and showcasing the ReactJS skills to assessment panel.

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import MoviesList from "./components/movie-list/MoviesList";
 import UsersList from "./components/user-list/UsersList";
@@ -16,7 +16,7 @@ function App() {
   const [wrong, setWrong] = useState(null);
 
   // SWAPI.DEV
-  async function fetchMoviesHandler() {
+  const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -41,7 +41,12 @@ function App() {
       setError(error.message);
     }
     setIsLoading(false);
-  }
+  }, []);
+
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
+
   // JSON API
   function fetchUsersHandler() {
     setIsFetching(true);
@@ -71,35 +76,45 @@ function App() {
       });
     setIsFetching(false);
   }
+  let content = <p>No Movie List found</p>;
+  if (movies.length > 0) {
+    content = <MoviesList movies={movies} />;
+  }
+  if (error) {
+    content = <p>{error}</p>;
+  }
+  if (isLoading) {
+    content = <p> Loading your Movie details... </p>;
+  }
+
+  let userbody = <p>No Users Found</p>;
+  if (users.length > 0) {
+    userbody = <UsersList users={users} />;
+  }
+  if (wrong) {
+    userbody = <p>{wrong}</p>;
+  }
+  if (isFetching) {
+    userbody = <p> Loading your User details..</p>;
+  }
+
   return (
     <React.Fragment>
       <Container>
         <Row>
           <Col>
             <section>
-              <p>Click to Fetch Movie List</p>
-              <button onClick={fetchMoviesHandler}>Fetch Movies</button>
+              <p>Click to Refresh Movie List</p>
+              <button onClick={fetchMoviesHandler}>Refresh</button>
             </section>
-            <section>
-              {!isLoading && movies.length > 0 && (
-                <MoviesList movies={movies} />
-              )}
-              {!isLoading && movies.length === 0 && <p>No Movie List found</p>}
-              {!isLoading && error && <p>{error}</p>}
-              {isLoading && <p>Loading your Movie details... </p>}
-            </section>
+            <section>{content}</section>
           </Col>
           <Col>
             <section>
-              <p>Click to Fetch Users</p>
+              <p>Click to Fetch User List</p>
               <button onClick={fetchUsersHandler}>Fetch Users</button>
             </section>
-            <section>
-              {!isFetching && users.length > 0 && <UsersList users={users} />}
-              {!isFetching && users.length === 0 && <p>No Users Found</p>}
-              {!isFetching && wrong && <p>{wrong}</p>}
-              {isFetching && <p>Loading your User details..</p>}
-            </section>
+            <section>{userbody}</section>
           </Col>
         </Row>
       </Container>
